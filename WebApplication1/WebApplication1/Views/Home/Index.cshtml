@@ -1,0 +1,227 @@
+﻿
+@{
+    var id = ViewBag.ID;
+    var list = (List<WebApplication1.Models.Album>)ViewBag.ListDatas;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>team work</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href="~/Content/bootstrap-3.3.7-dist/css/sidebar.css" rel="stylesheet" />
+    <link href="~/Content/CaptionHoverEffects/css/default.css" rel="stylesheet" />
+    <link href="~/Content/CaptionHoverEffects/css/component.css" rel="stylesheet" />
+    <script src="~/Content/CaptionHoverEffects/js/modernizr.custom.js"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #mwt_mwt_slider_scroll {
+            top: 0;
+            left: -150px;
+            width: 150px;
+            position: fixed;
+            z-index: 9999;
+        }
+
+        #mwt_slider_content {
+            background: #2c3f52;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        #mwt_fb_tab {
+            position: absolute;
+            top: 20px;
+            right: -24px;
+            width: 24px;
+            background: #2c3f52;
+            color: #ffffff;
+            font-family: Arial,Helvetica,sans-serif;
+            text-align: center;
+            padding: 9px 0;
+            -moz-border-radius-topright: 10px;
+            -moz-border-radius-bottomright: 10px;
+            -webkit-border-top-right-radius: 10px;
+            -webkit-border-bottom-right-radius: 10px;
+        }
+
+            #mwt_fb_tab span {
+                display: block;
+                height: 12px;
+                padding: 1px 0;
+                line-height: 12px;
+                text-transform: uppercase;
+                font-size: 12px;
+            }
+
+        .button {
+            display: inline-block;
+            margin: 0.5em;
+            padding: 0.7em 1.1em;
+            border: 3px solid #b3b9bF;
+            color: #b3b9bf;
+            font-weight: 700;
+            background-color: #2c3f52;
+        }
+
+        .card-center {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            width: 800px;
+            height: 100px;
+            border: 3px solid #2c3f52;
+            border-top: 1.5px solid #2c3f52;
+            background-color: #ffffff;
+            font-size: 20px;
+        }
+
+        .card-title-center {
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px 10px;
+            width: 800px;
+            height: 40px;
+            border: 3px solid #2c3f52;
+            border-bottom: 1.5px solid #2c3f52;
+            background-color: #ffffff;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" language="javascript"></script>
+    <script>
+        $(function () {
+            var w = $("#mwt_slider_content").width();
+            $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px');
+
+            $("#mwt_fb_tab").mouseover(function () {
+                if ($("#mwt_mwt_slider_scroll").css('left') == '-' + w + 'px') {
+                    $("#mwt_mwt_slider_scroll").animate({ left: '0px' }, 600, 'swing');
+                }
+            });
+            $("#mwt_slider_content").mouseleave(function () {
+                $("#mwt_mwt_slider_scroll").animate({ left: '-' + w + 'px' }, 600, 'swing');
+            });
+
+            $('#1103105305').click(function () {
+                $('html,body').animate({ scrollTop: '0px' }, 800);
+            });
+
+            $('#1103105336').click(function () {
+                $('html,body').animate({ scrollTop: $('#1').offset().top - 10 }, 800);
+            });
+
+            $('#1103105342').click(function () {
+                $('html,body').animate({ scrollTop: $('#2').offset().top - 10 }, 800);
+            });
+            $('#1103105310').click(function () {
+                $('html,body').animate({ scrollTop: $('#3').offset().top - 10 }, 800);
+            });
+            $('#1103105331').click(function () {
+                $('html,body').animate({ scrollTop: $('#4').offset().top - 10 }, 800);
+            });
+            $('#1103105382').click(function () {
+                $('html,body').animate({ scrollTop: $('#5').offset().top - 10 }, 800);
+            });
+            $('#07').click(function () {
+                $('html,body').animate({ scrollTop: $('#link').offset().top }, 800);
+            });
+            $('#08').click(function () {
+                $('html,body').animate({ scrollTop: $('#picture').offset().top }, 800);
+            });
+        });
+
+    </script>
+
+
+
+</head>
+<body>
+    <div id="mwt_mwt_slider_scroll">
+        <div id="mwt_fb_tab">
+            <span>側</span><span> </span>
+            <span>邊</span><span> </span>
+            <span>選</span><span> </span>
+            <span>單</span><span> </span>
+        </div>
+        <div id="mwt_slider_content">
+            <!--<div class="codrops-demos">-->
+            @for (int i = 0; i < list.Count; i++)
+            {
+                <input type="button" class="button" id="@list[i].Number" value="@list[i].Name" />
+            }
+            <!--</div>-->
+        </div>
+    </div>
+
+    @for (int i = 0; i < list.Count - 2; i++)
+    {
+        <article id="@i">
+            <div class="card-title-center" style="color:black">@list[i].Name</div>
+            <div class="card-center" id="body" style="color:black">@list[i].Say</div>
+        </article>
+    }
+
+    <div class="container demo-7">
+        <!-- Top Navigation -->
+        <header>
+            <h1 id="link">Facebook Link</h1>
+        </header>
+        <ul class="grid cs-style-6">
+            @for (int i = 0; i < list.Count - 2; i++)
+            {
+                <li>
+                    <figure>
+                        <img src="@list[i].Picture">
+                        <figcaption>
+                            <h3>@list[i].Name</h3>
+                            <a href="@list[i].facebook_link">傳送門</a>
+                        </figcaption>
+                    </figure>
+                </li>
+            }
+        </ul>
+    </div><!-- /container -->
+
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            @for (int i = 1; i < list.Count - 2; i++)
+            {
+                <li data-target="#carousel-example-generic" data-slide-to="@i"></li>
+            }
+        </ol>
+        <div class="carousel-inner" role="listbox" id="picture">
+            <div class="item active">
+                <center><img src="@list[0].Picture" class="img-rounded"></center>
+                <div class="carousel-caption">@list[0].Name</div>
+            </div>
+            @for (int i = 1; i < list.Count - 2; i++)
+            {
+                <div class="item">
+                    <center><img src="@list[i].Picture" class="img-rounded"></center>
+                    <div class="carousel-caption">@list[i].Name</div>
+                </div>
+            }
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <script src="~/Content/CaptionHoverEffects/js/modernizr.custom.js"></script>
+    <script src="http://tympanus.net/codrops/adpacks/demoad.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="~/Content/bootstrap-3.3.7-dist/js/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>選擇日期範例</title>
+
+<!--引入月曆CSS檔-->
+<link rel="stylesheet" type="text/css" href="calendar.css"/>
+<!--引入月曆javascript檔-->
+<script src="calendar.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<table width="400" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td id="date" valign="top"><p>發佈日期：<input name="start" type="text" id="start" size="8" readonly="true" />
+      <div id="startDate">
+        <script type="text/javascript">
+		  selectDate(y,m,d,"startDate","start");
+        </script>
+      </div>
+		</td>
+    <td id="date" valign="top"><p>結束日期：<input name="end" type="text" id="end" size="8" readonly="true" />
+      <div id="endDate">
+        <script type="text/javascript">
+		  selectDate(y,m+1,d,"endDate","end");
+       	</script>
+      </div>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

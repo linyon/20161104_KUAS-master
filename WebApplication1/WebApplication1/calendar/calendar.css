@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*月曆日期樣式*/
+table.calendarTable{
+	background:#0080FF;
+}
+table.calendarContent{
+	background:#999;
+}
+th#calendarPrint{
+	background:#C8E3FF;
+	font-size:9pt;
+	Color:#330099;
+}
+th#calendarCell{
+	background:#0080FF;
+	font-size:9pt;
+	Color:#FFF;
+}
+td#calendarChecked{
+	background:#FF8040;
+	font-size:9pt;
+	Color:#FFF;
+}
+td#calandarSelect{
+	background:#FFF;
+	font-size:9pt;
+	font-family:Arial;
+	color:#330066;
+}
+
+
+
+A:link{
+	text-decoration:none;
+}
+A:hover{
+	background:#FF33FF;
+}
+A:visited{
+	color:#0000CC;
+}
+date{
+}
+startDate{
+}
+endDate{
+}
